@@ -83,6 +83,8 @@ export default {
     .icons >>> .swiper-container         //解决未撑开的高度无法滑动
         height: 0
         padding-bottom: 50%
+    .icons
+        margin-top: .2rem    
         .icon
             position: relative
             overflow: hidden
