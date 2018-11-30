@@ -7,7 +7,7 @@
                     :key="item.id"
                 >
                     <div class="icon-img">
-                        <img class="icon-img-content" :src="item.url" alt="">
+                        <img class="icon-img-content" :src="item.imgUrl" alt="">
                     </div>
                     <p class="icon-desc">{{item.desc}}</p>
                 </div>  
@@ -21,45 +21,11 @@ export default {
     name:'HomeIcons',
     data(){
         return {
-            swiperOption: {} ,
-            iconList:[{
-                id:'0001',
-                url:'http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png',
-                desc:'景点门票景点门景点门景点门景点门'
-            },{
-                id:'0002',
-                url:'http://img1.qunarzz.com/piao/fusion/1711/df/86cbcfc533330d02.png',
-                desc:'滑雪季'
-            },{
-                id:'0003',
-                url:'http://img1.qunarzz.com/piao/fusion/1710/a6/83f636bd75ae6302.png',
-                desc:'泡温泉'
-            },{
-                id:'0004',
-                url:'http://img1.qunarzz.com/piao/fusion/1611/35/2640cab202c41b02.png',
-                desc:'动植园'
-            },{
-                id:'0005', 
-                url:'http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png',
-                desc:'景点门票'
-            },{
-                id:'0006',
-                url:'http://img1.qunarzz.com/piao/fusion/1711/df/86cbcfc533330d02.png',
-                desc:'滑雪季'
-            },{
-                id:'0007',
-                url:'http://img1.qunarzz.com/piao/fusion/1710/a6/83f636bd75ae6302.png',
-                desc:'泡温泉'
-            },{
-                id:'0008',
-                url:'http://img1.qunarzz.com/piao/fusion/1611/35/2640cab202c41b02.png',
-                desc:'动植园'
-            },{
-                id:'0009',
-                url:'http://img1.qunarzz.com/piao/fusion/1611/35/2640cab202c41b02.png',
-                desc:'一日游'
-            }]
+            swiperOption: {}
         }
+    },
+    props:{
+        iconList: Array
     },
     computed:{
         pages(){
