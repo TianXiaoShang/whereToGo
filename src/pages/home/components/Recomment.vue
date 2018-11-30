@@ -2,7 +2,7 @@
     <div>
         <div class="title">热销推荐</div>
             <ul>
-                <li class="item" v-for="item of RecommentList" :key="item.id">
+                <li class="item border-bottom" v-for="item of RecommentList" :key="item.id">
                     <img class="item-img" :src="item.url" alt="">
                     <div class="item-info">
                         <p class="item-title">{{item.title}}</p>
@@ -49,7 +49,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scope>
+<style lang="stylus" scoped>
     @import "~styles/mixins.styl"
     .title
         margin-top: .2rem
