@@ -35,6 +35,7 @@ export default {
         }
     },
     mounted(){
+        console.log('a')
         this.getHomeInfo()
     },
     methods: {
