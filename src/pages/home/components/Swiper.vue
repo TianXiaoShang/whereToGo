@@ -37,7 +37,6 @@ export default {
         background :#fff !important
     .wrapper >>> .swiper-wrapper
         transform: translate3d(-1500px, 0px, 0px)
-        // transition-duration: 1000ms !important
     .wrapper                            //网速过慢未加载图片时先撑开当前区域，同时巧用padding-bottom保持宽高比
         overflow: hidden
         width: 100%

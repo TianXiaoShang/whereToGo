@@ -24,7 +24,7 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-@import '~styles/varibles.styl'   //引入变量库
+@import '~styles/variables.styl'   //引入变量库
     .header
         display:flex
         line-height: $headerHeight
