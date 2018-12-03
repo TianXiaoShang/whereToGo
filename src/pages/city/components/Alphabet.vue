@@ -20,8 +20,13 @@ export default {
     },
     data(){
         return{
-            touchStatus: false
+            touchStatus: false,
+            startY: 0,
+            timer: null
         }
+    },
+    update(){                             //在页面更新后，也就是本组件加载完成后，执行钩子函数，只计算一次startY节省性能
+        startY = this.$refs[this.letters[0]][0].offsetTop
     },
     computed:{
        letters(){
@@ -40,16 +45,22 @@ export default {
             this.touchStatus = true
         },
         handleTouchMove(e){
-            var startY = this.$refs[this.letters[0]][0].offsetTop
-            var tounchY = e.touches[0].clientY - 79
-            var index = Math.floor((tounchY - startY) / 20)
-            if(index >= 0 && index < this.letters.length){
-                this.$emit('change',this.letters[index])
+            if(this.timer){
+                clearTimeout(this.timer)
             }
+            timer = setTimeout(() => {       //防抖处理
+                if(this.touchStatus){
+                const tounchY = e.touches[0].clientY - 79
+                const index = Math.floor((tounchY - this.startY) / 20)
+                    if(index >= 0 && index < this.letters.length){
+                        this.$emit('change',this.letters[index])
+                    }
+                }
+            },16)
         },
         handleTouchEnd(){
             this.touchStatus = false
-        }         
+        }
     }
 }
 </script>
