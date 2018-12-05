@@ -5,7 +5,7 @@
         </div>
         <div class="search-content" ref="search" v-show="keyword">
             <ul>
-                <li class="search-item border-bottom" v-for="item of list" :key="item.id">{{item.name}}</li>
+                <li class="search-item border-bottom" v-for="item of list" :key="item.id"  @click="handelCityClick(item.name)">{{item.name}}</li>
                 <li class="search-item border-bottom" v-show="hasNoData">没有找到匹配数据</li>
             </ul>
         </div>
@@ -15,6 +15,7 @@
 
 <script>
 import Bscroll from 'better-scroll'
+// import router from 'router'
 export default {
     name: 'CitySearch',
     props:{
@@ -25,6 +26,13 @@ export default {
             keyword: '',
             list: [],
             timer: null,
+        }
+    },
+    methods:{
+    handelCityClick(city){
+        //当然，在一般情况下可以直接使用conmmit调用mutations,如下：
+        this.$store.commit('changeCity', city)
+        this.$router.push('/')      //该方法等同于标签<router-link :to="/">
         }
     },
     computed:{

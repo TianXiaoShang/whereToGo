@@ -6,14 +6,18 @@
                     <div class="title border-topbottom" >当前城市</div>
                     <div class="button-list">
                         <div class="button-wrapper">
-                            <div class="button">北京</div>                         
+                            <div class="button">{{this.$store.state.city}}</div>                         
                         </div>
                     </div>
                 </div>
                 <div class="area">
                     <div class="title border-topbottom" >热门城市</div>
                     <div class="button-list">
-                        <div class="button-wrapper" v-for="item of hotCities" :key=item.id>
+                        <div class="button-wrapper" 
+                        v-for="item of hotCities" 
+                        :key=item.id
+                        @click="handelCityClick(item.name)"
+                        >
                             <div class="button">{{item.name}}</div>                         
                         </div>
                     </div>
@@ -25,7 +29,7 @@
                 >
                     <div class="title border-topbottom" >{{key}}</div>
                     <div class="item-list" >
-                        <div class="item border-bottom" v-for="cityName of item" :key="cityName.id">{{cityName.name}}</div>
+                        <div class="item border-bottom" v-for="cityName of item" :key="cityName.id"  @click="handelCityClick(cityName.name)">{{cityName.name}}</div>
                     </div>
                 </div>
             </div>
@@ -41,6 +45,14 @@ export default {
         hotCities: Array,
         allCities: Object,
         letter: String
+    },
+    methods:{
+        handelCityClick(city){
+            // this.$store.dispatch('changeCity', city)    //使用dispatch驱动actions中的changeCity事件，同时将city传递过去
+            //当然，在一般情况下可以直接使用conmmit调用mutations,如下：
+            this.$store.commit('changeCity', city)
+            this.$router.push('/')      //该方法等同于标签<router-link :to="/">    
+        }
     },
     mounted(){
         this.scroll = new Bscroll(this.$refs.wrapper)

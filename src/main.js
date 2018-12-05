@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import fastClick from 'fastclick'    //解决移动端部分click事件延迟300毫秒执行的库  npm install fastclick --save  save代表不管开发或者上线均使用这个库
+import store from './store'          //引入vuex的store
 import 'styles/reset.css'            //解决移动端样式不统一的问题；
 import 'styles/border.css'           //解决移动端部分高分辨率手机border显示问题
 import 'styles/iconfont.css'
@@ -17,7 +18,8 @@ Vue.use(VueAwesomeSwiper, /* { default global options } */)    //使用轮播图
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router,
+  router, 
+  store,
   components: { App },
   template: '<App/>' 
 })

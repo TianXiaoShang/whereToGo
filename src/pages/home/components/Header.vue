@@ -8,19 +8,16 @@
             输入城市/景点/游玩/主题</div>
             <router-link to="/city">
                 <div class="header-right">
-                    {{this.city}}
+                    {{this.$store.state.city}}
                     <span class="iconfont arrow-icon">&#xe64a;</span>  
                 </div>
-            </router-link>      
+            </router-link>
     </div>
 </template>
 
 <script>
 export default {
     name:'HomeHeader',
-    props:{
-        city: String
-    }
 }
 </script>
 <style lang="stylus" scoped>
@@ -40,6 +37,7 @@ export default {
         .header-input
             flex: 1
             height: .64rem
+            margin-right: .1rem
             margin-top: .11rem
             background: #fff
             border-radius: .1rem
@@ -47,9 +45,8 @@ export default {
             line-height: .64rem
             padding-left: .2rem
         .header-right
-            width: 1.24rem
+            margin-right: .2rem
             float: right
-            text-align: center
             color: #fff            
             .arrow-icon
                 margin-left: -0.04rem

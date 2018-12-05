@@ -4,7 +4,6 @@
             <router-link to="/">
             <div class="iconfont back-icon">&#xe624;</div>    
             </router-link>
-                    
             城市选择
         </div>
     </div>
