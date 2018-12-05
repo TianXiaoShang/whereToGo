@@ -6,7 +6,7 @@
                     <div class="title border-topbottom" >当前城市</div>
                     <div class="button-list">
                         <div class="button-wrapper">
-                            <div class="button">{{this.$store.state.city}}</div>                         
+                            <div class="button">{{this.currentCity}}</div>                         
                         </div>
                     </div>
                 </div>
@@ -39,6 +39,8 @@
 
 <script>
 import Bscroll from 'better-scroll'
+import { mapState, mapMutations } from 'vuex'    //vuex同时提供了mapMutations简便方法
+
 export default {
     name: 'CityList',
     props:{
@@ -46,13 +48,20 @@ export default {
         allCities: Object,
         letter: String
     },
+    computed: {
+        ...mapState({
+            currentCity: 'city'     //除了数组还可以映射成对象
+        })      
+    },
     methods:{
         handelCityClick(city){
             // this.$store.dispatch('changeCity', city)    //使用dispatch驱动actions中的changeCity事件，同时将city传递过去
             //当然，在一般情况下可以直接使用conmmit调用mutations,如下：
-            this.$store.commit('changeCity', city)
+            // this.$store.commit('changeCity', city)         在下方使用...mapMutations注册后，即可直接调用，默认走commit路径（这里的所谓注册为个人理解，便于记忆）
+            this.changeCity(city)
             this.$router.push('/')      //该方法等同于标签<router-link :to="/">    
-        }
+        },
+        ...mapMutations (['changeCity'])   //使用该方法，将changeCity注册为commit需要传递给mutations的方法，在上方我们直接使用该方法即可。
     },
     mounted(){
         this.scroll = new Bscroll(this.$refs.wrapper)
@@ -107,7 +116,5 @@ export default {
             .item
                 line-height: .76rem 
                 padding-left: .2rem 
-        
-
 </style>
 

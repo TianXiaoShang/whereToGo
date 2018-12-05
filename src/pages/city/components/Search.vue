@@ -15,7 +15,8 @@
 
 <script>
 import Bscroll from 'better-scroll'
-// import router from 'router'
+import { mapMutations } from 'vuex'    //vuex同时提供了mapMutations简便方法
+
 export default {
     name: 'CitySearch',
     props:{
@@ -30,10 +31,10 @@ export default {
     },
     methods:{
     handelCityClick(city){
-        //当然，在一般情况下可以直接使用conmmit调用mutations,如下：
-        this.$store.commit('changeCity', city)
-        this.$router.push('/')      //该方法等同于标签<router-link :to="/">
-        }
+            this.changeCity(city)
+            this.$router.push('/')      //该方法等同于标签<router-link :to="/">    
+        },
+        ...mapMutations (['changeCity'])   //使用该方法，将changeCity注册为commit需要传递给mutations的方法，在上方我们直接使用该方法即可。
     },
     computed:{
         hasNoData(){
