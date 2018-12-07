@@ -37,8 +37,11 @@ export default {
             }
         }
     },
-    activated(){
-        document.addEventListener("scroll", this.handleScroll)
+    activated(){    //页面展示时候执行钩子
+        window.addEventListener("scroll", this.handleScroll)
+    },
+    deactivated(){    //页面隐藏时候执行钩子
+        window.removeEventListener('scroll', this.handleScroll)
     }
 }
 </script>
