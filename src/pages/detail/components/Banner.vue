@@ -33,7 +33,7 @@ export default {
     components:{
         CommonGallary
     }
-};
+}
 </script>
 
 <style lang="stylus" scoped>
