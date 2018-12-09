@@ -59,7 +59,6 @@ export default {
         }
     },
     activated(){            //使用keep-alive标签时候，会多一个生命周期函数，也就是activated,它当页面重新被显示的时候自动执行
-        console.log('activated')
         if(this.lastCiay !== this.city) {
             this.lastCiay = this.city
             this.getHomeInfo()

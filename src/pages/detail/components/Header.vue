@@ -37,10 +37,16 @@ export default {
             }
         }
     },
-    activated(){    //页面展示时候执行钩子
-        window.addEventListener("scroll", this.handleScroll)
+    // activated(){    //页面展示时候执行钩子
+    //     window.addEventListener("scroll", this.handleScroll)
+    // },
+    // deactivated(){    //页面隐藏时候执行钩子
+    //     window.removeEventListener('scroll', this.handleScroll)
+    // }
+    mounted () {
+        window.addEventListener('scroll', this.handleScroll)
     },
-    deactivated(){    //页面隐藏时候执行钩子
+    beforeDestroy () {
         window.removeEventListener('scroll', this.handleScroll)
     }
 }
@@ -63,6 +69,7 @@ export default {
             color: white
             font-size: .4rem
     .header-fixed
+        z-index: 2
         position: fixed
         top: 0
         left: 0
