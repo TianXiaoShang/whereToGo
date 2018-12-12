@@ -19,8 +19,8 @@ export default {
         return {
             sightName: '',
             bannerImg: '',
-            gallargImgs: '',
-            list: ''
+            gallargImgs: [],
+            list: []
         }
     },
     components:{
@@ -44,8 +44,6 @@ export default {
                 this.bannerImg = data.bannerImg
                 this.gallargImgs = data.gallaryImgs
                 this.list = data.categoryList
-                console.log(this.gallargImgs)
-                console.log(this.list)                
             }
         }
     },

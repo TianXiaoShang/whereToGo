@@ -32,7 +32,6 @@ export default {
     },
     methods:{
         handleBannerClick(){
-            console.log(typeof this.gallargImgs)
             this.showGallary = true;
         },
         CloseGrallay() {

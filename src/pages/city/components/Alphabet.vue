@@ -48,7 +48,7 @@ export default {
             if(this.timer){
                 clearTimeout(this.timer)
             }
-            timer = setTimeout(() => {       //防抖处理
+            this.timer = setTimeout(() => {       //防抖处理
                 if(this.touchStatus){
                 const tounchY = e.touches[0].clientY - 79
                 const index = Math.floor((tounchY - this.startY) / 20)

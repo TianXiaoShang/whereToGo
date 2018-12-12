@@ -15,7 +15,7 @@ export default new Router({
     },{
       path: '/detail/:id',
       name: 'Detail',
-      component: () => improt('@/pages/detail/Detail')
+      component: () => import('@/pages/detail/Detail')
     }],
     scrollBehavior(to, from, savedPosition){
       return {x: 0, y: 0}
